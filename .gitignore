@@ -1,0 +1,12 @@
+# Python virtual environment (created at the repo root with `uv venv`)
+.venv/
+
+# Python bytecode / caches
+__pycache__/
+*.py[cod]
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS cruft
+.DS_Store

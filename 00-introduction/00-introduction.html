@@ -7968,7 +7968,8 @@ a.anchor-link {
 <li data-page="5">5. Virtual Environments</li>
 <li data-page="6">6. Your first Python script</li>
 <li data-page="7">7. Errors trace back to source</li>
-<li data-page="8">8. Specific AI Prompts</li>
+<li data-page="8">8. Setting Up Your Course Repository</li>
+<li data-page="9">9. Specific AI Prompts</li>
 </ul>
 </nav>
 <div class="pg-main">
@@ -8214,13 +8215,72 @@ Hello, world!
 </div>
 </div>
 <div class="pg-page" data-page="8">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e5503569">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="8.-Setting-Up-Your-Course-Repository">8. Setting Up Your Course Repository<a class="anchor-link" href="#8.-Setting-Up-Your-Course-Repository">¶</a></h3><p>This guide gets you set up so you can pull down course modules, work on them, and submit your answers — all without changing the original course materials.</p>
+<h4 id="8.1-One-time-setup">8.1 One-time setup<a class="anchor-link" href="#8.1-One-time-setup">¶</a></h4><p><strong>1. Install and configure git</strong></p>
+<div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>git<span class="w">          </span>
+$<span class="w"> </span>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.name<span class="w"> </span><span class="s2">"Your Name"</span>
+$<span class="w"> </span>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.email<span class="w"> </span><span class="s2">"your@email.com"</span>
+</pre></div>
+<p><strong>2. Create a GitHub account using that same email</strong></p>
+<p>Go to <code>https://github.com/signup</code> and register with the exact email you used in <code>git config --global user.email</code> above. If you already have an account, add the address at <strong>Settings → Emails → Add email address</strong> and verify it.</p>
+<p>This matters because GitHub links your commits to your profile by matching the commit's email against the emails on your account. If they don't match, your work still gets pushed, but it shows up as an unattributed name with a generic avatar instead of your account — which makes it harder for your instructor to tell whose work is whose.</p>
+<p>Check that the two agree:</p>
+<div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.email<span class="w">      </span><span class="c1"># must be an email on your GitHub account</span>
+</pre></div>
+<p><strong>3. Fork the course repo</strong></p>
+<p>Go to <code>https://github.com/snukem/python-from-zero</code> and click <strong>Fork</strong> (top right). You now have your own copy at <code>https://github.com/YOUR-USERNAME/python-from-zero</code>.</p>
+<p><strong>4. Clone your fork</strong></p>
+<p>Make sure you are in a directory on your computer that you want all these learning materials to be in, e.g. "documents/" or "documents/learning/". Then run:</p>
+<div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/YOUR-USERNAME/python-from-zero.git
+$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>python-from-zero
+</pre></div>
+<p><strong>5. Point at the original as "upstream"</strong></p>
+<div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>upstream<span class="w"> </span>https://github.com/snukem/python-from-zero.git
+$<span class="w"> </span>git<span class="w"> </span>remote<span class="w"> </span>-v<span class="w">      </span><span class="c1"># should list origin (yours) and upstream (snukem's)</span>
+</pre></div>
+<p><code>origin</code> is where you push your work. <code>upstream</code> is the instructor's repo — you have read access only, so you can't accidentally alter the original modules.</p>
+<h4 id="8.2-Every-work-session">8.2 Every work session<a class="anchor-link" href="#8.2-Every-work-session">¶</a></h4><p><strong>Get the latest modules:</strong></p>
+<div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>fetch<span class="w"> </span>upstream
+$<span class="w"> </span>git<span class="w"> </span>merge<span class="w"> </span>upstream/main<span class="w">        </span><span class="c1"># use upstream/master if that's the branch name</span>
+</pre></div>
+<p><strong>Do the work, then save and push it:</strong></p>
+<div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>add<span class="w"> </span>.
+$<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"updating my responses"</span><span class="w"> </span><span class="c1"># a commit uses the -m flag to add a useful message</span>
+$<span class="w"> </span>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>main
+</pre></div>
+<p>Your answers land in your "fork" only.</p>
+<h4 id="8.3-Submitting-a-finished-module">8.3 Submitting a finished module<a class="anchor-link" href="#8.3-Submitting-a-finished-module">¶</a></h4><p>A <strong>pull request</strong> (or "PR") is just a request asking your instructor to look at the changes on your fork — it doesn't actually give them your code or merge anything automatically, it just opens a page where they can read your work and leave comments.</p>
+<p>To open one:</p>
+<ol>
+<li>Go to your fork in a browser: <code>https://github.com/YOUR-USERNAME/python-from-zero</code></li>
+<li>Make sure you've pushed your latest work (<code>git push origin main</code>) — the fork on GitHub needs to be up to date first.</li>
+<li>Click the <strong>"Contribute"</strong> button (near the top of the page), then click <strong>"Open pull request."</strong></li>
+<li>GitHub will show a comparison between your fork and <code>snukem/python-from-zero</code>. Check that the base is <code>snukem/python-from-zero</code> and the head is your fork — this is usually the default, so you shouldn't need to change anything.</li>
+<li>Give it a title, like <code>Module 3 - Your Name</code>, and optionally a short description.</li>
+<li>Click <strong>"Create pull request."</strong></li>
+</ol>
+<p>That's it — your instructor will get a notification and can review your work at that link. You don't need to do anything else, and you can keep working and pushing more commits even after opening the PR (they'll show up on the same page).</p>
+<h4 id="8.4-Note">8.4 Note<a class="anchor-link" href="#8.4-Note">¶</a></h4><p><strong>Your first push will ask for a password — don't use your GitHub password.</strong> GitHub doesn't accept account passwords from the command line. Create a personal access token instead: Settings → Developer settings → Personal access tokens → Fine-grained tokens, with Contents set to Read and write on your fork. Paste that token when prompted for a password.</p>
+<p><strong>Don't edit the original module files.</strong> Put your work in new files as requested in the activities. If you edit a file I later update, the <code>git merge</code> step will hit a conflict. The nice thing about git is that it's resolvable, but still would need to be manually resolved.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="pg-page" data-page="9">
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=d7a7904e">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="8.-Specific-AI-Prompts">8. Specific AI Prompts<a class="anchor-link" href="#8.-Specific-AI-Prompts">¶</a></h3><p>As mentioned in 2.2, here are specific AI prompts that should only be used in one of three scenarios: you make 3 or more mistakes on your own and can't come to the solution, you have a working solution and need to generate a quiz, or you have finished the activity quiz and are requesting explanation of potential improvements. Copy and paste the prompts exactly, and provide the requested context. For longer contexts, you can also just attach the file instead of pasting the content of the context. You'll come back to these often, so save them somewhere convenient.</p>
+<h3 id="9.-Specific-AI-Prompts">9. Specific AI Prompts<a class="anchor-link" href="#9.-Specific-AI-Prompts">¶</a></h3><p>As mentioned in 2.2, here are specific AI prompts that should only be used in one of three scenarios: you make 3 or more mistakes on your own and can't come to the solution, you have a working solution and need to generate a quiz, or you have finished the activity quiz and are requesting explanation of potential improvements. Copy and paste the prompts exactly, and provide the requested context. For longer contexts, you can also just attach the file instead of pasting the content of the context. You'll come back to these often, so save them somewhere convenient.</p>
 <p><strong>Three Mistakes:</strong></p>
 <p>I'm a beginner learning Python and I'm stuck after three attempts on this activity. Here is the problem description, my code, and the error or output I'm getting. In plain, everyday language, tell me directly: (1) why my code doesn't do what I meant it to do, and (2) why the corrected version works instead — what it does differently that Python actually needs. Keep it short: a few sentences, not a lecture. Don't bring up any Python concepts, terms, or techniques beyond what this specific problem already requires. Give me the corrected code, but spend your words on the "why," not on restating the code.</p>
 <p>Problem description: [paste]</p>
@@ -8249,7 +8309,7 @@ Hello, world!
 </main>
 <div class="pg-controls">
 <button class="pg-btn" id="pg-prev" type="button">&larr; Back</button>
-<span class="pg-indicator" id="pg-indicator">1 / 8</span>
+<span class="pg-indicator" id="pg-indicator">1 / 9</span>
 <button class="pg-btn" id="pg-next" type="button">Next &rarr;</button>
 </div>
 </div>

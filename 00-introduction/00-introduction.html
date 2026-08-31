@@ -8090,7 +8090,7 @@ $<span class="w"> </span>mv<span class="w"> </span>&lt;source&gt;<span class="w"
 <h3 id="4.-Using-the-REPL">4. Using the REPL<a class="anchor-link" href="#4.-Using-the-REPL">¶</a></h3><p>Python always ships with a <em>Read-Evaluate-Print-Loop</em> (REPL). Run</p>
 <div class="highlight"><pre><span></span>$<span class="w"> </span>uv<span class="w"> </span>run<span class="w"> </span>--python<span class="w"> </span><span class="m">3</span>.14<span class="w"> </span>python
 </pre></div>
-<p><code>uv run</code> executes a command using whichever Python version you tell it to — here, plain <code>python</code>, which starts the REPL. You should see the terminal prefix your next line with <strong>&gt;&gt;&gt;</strong>. This means you are now writing Python code rather than sending bash commands.</p>
+<p><code></code> executes a command using whichever Python version you tell it to — here, plain <code>python</code>, which starts the REPL. You should see the terminal prefix your next line with <strong>&gt;&gt;&gt;</strong>. This means you are now writing Python code rather than sending bash commands.</p>
 <p>The REPL is interactive. Type</p>
 <div class="highlight"><pre><span></span><span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span>
 </pre></div>
@@ -8181,7 +8181,7 @@ Hello, world!
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3 id="7.-Errors-trace-back-to-source">7. Errors trace back to source<a class="anchor-link" href="#7.-Errors-trace-back-to-source">¶</a></h3><p>Errors are not failures — they are Python telling you exactly what went wrong and where. Learning to read them is the single most useful debugging skill you have, so let's deliberately cause a few.</p>
-<p>Open the REPL (<code>$ python</code>, if your <code>.venv</code> is active, or <code>$ uv run --python 3.14 python</code> if not) and type a variable name that doesn't exist:</p>
+<p>Open the REPL (<code>$ python</code>, if your <code>.venv</code> is active, or <code>$ uv run python</code> if not) and type a variable name that doesn't exist:</p>
 <div class="highlight"><pre><span></span><span class="n">speed_of_light</span>
 </pre></div>
 <p>You'll get back:</p>

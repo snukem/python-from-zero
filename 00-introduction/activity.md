@@ -46,7 +46,7 @@ all of them.
 
 For most activities you will be creating a Python script that, when run, produces output that can be check with accuracy. So the modules don't come with this script. Additionally, when you run the Activity Quiz AI prompt, two additional files will be created (questions & answers). So a finished module contains the template folders and files, plus additional files that are created as you complete the module.
 
-Be sure to add, commit, and push your changes with git as you work. Similarly, you should pull any changes I make so that you get future modules in your fork of the repository.
+Be sure to add, commit, and push your changes with git as you work. Similarly, you should pull any changes I make so that you get future modules in your fork of the repository (see Section 8 of the introduction).
 
 ## Done?
 

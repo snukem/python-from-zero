@@ -10,3 +10,6 @@ __pycache__/
 
 # OS cruft
 .DS_Store
+
+# my stuff
+progression.txt
